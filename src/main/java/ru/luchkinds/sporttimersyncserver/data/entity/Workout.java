@@ -33,6 +33,7 @@ public class Workout {
     @Column()
     private String notes;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private AppUser user;
 }

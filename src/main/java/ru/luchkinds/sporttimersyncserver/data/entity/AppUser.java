@@ -21,10 +21,16 @@ public class AppUser implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     @Column(nullable = false, unique = true)
     private String username;
+
     @Column(nullable = false)
     private String password;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private List<Workout> workouts;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

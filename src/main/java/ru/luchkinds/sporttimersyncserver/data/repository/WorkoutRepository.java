@@ -7,9 +7,10 @@ import ru.luchkinds.sporttimersyncserver.data.entity.AppUser;
 import ru.luchkinds.sporttimersyncserver.data.entity.Workout;
 
 import java.util.Optional;
+import java.util.stream.Stream;
 
 public interface WorkoutRepository extends CrudRepository<Workout, Integer> {
-    Iterable<Workout> findAllByUser(AppUser user);
+    Stream<Workout> findAllByUser(AppUser user);
 
     @Modifying
     @Query("DELETE Workout WHERE id = :id and user = :user")
