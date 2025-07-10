@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 import ru.luchkinds.sporttimersyncserver.data.entity.AppUser;
 import ru.luchkinds.sporttimersyncserver.data.entity.Workout;
-import ru.luchkinds.sporttimersyncserver.exception.WorkoutNotFoundException;
 import ru.luchkinds.sporttimersyncserver.presenter.dto.CreateWorkoutDto;
+import ru.luchkinds.sporttimersyncserver.presenter.dto.UpdateWorkoutDto;
 import ru.luchkinds.sporttimersyncserver.presenter.dto.WorkoutResponseDto;
 import ru.luchkinds.sporttimersyncserver.service.WorkoutServiceInterface;
 
@@ -58,7 +58,7 @@ public class WorkoutController {
     public ResponseEntity<Workout> updateWorkout(
         @AuthenticationPrincipal AppUser user,
         @PathVariable Integer id,
-        @RequestBody @Validated CreateWorkoutDto dto,
+        @RequestBody @Validated UpdateWorkoutDto dto,
         BindingResult bindingResult
     ) throws BindException {
         if (bindingResult.hasErrors()) {

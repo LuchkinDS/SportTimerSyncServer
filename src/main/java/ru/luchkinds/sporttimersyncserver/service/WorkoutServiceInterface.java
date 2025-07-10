@@ -6,7 +6,6 @@ import ru.luchkinds.sporttimersyncserver.data.entity.WorkoutType;
 import ru.luchkinds.sporttimersyncserver.presenter.dto.WorkoutResponseDto;
 
 import java.time.LocalDate;
-import java.util.Optional;
 
 public interface WorkoutServiceInterface {
     Iterable<WorkoutResponseDto> findAll(AppUser user, String filter);

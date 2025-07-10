@@ -12,7 +12,6 @@ import ru.luchkinds.sporttimersyncserver.mapper.WorkoutToWorkoutResponseDto;
 import ru.luchkinds.sporttimersyncserver.presenter.dto.WorkoutResponseDto;
 
 import java.time.LocalDate;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor

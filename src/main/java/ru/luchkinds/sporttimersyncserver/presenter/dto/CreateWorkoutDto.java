@@ -6,7 +6,6 @@ import jakarta.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.BindParam;
 import ru.luchkinds.sporttimersyncserver.data.entity.WorkoutType;
-import ru.luchkinds.sporttimersyncserver.validator.ValueOfEnum;
 
 import java.time.LocalDate;
 
