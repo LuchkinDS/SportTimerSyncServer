@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: SportTimerSyncServer
+
+  datasource:
+    url: jdbc:sqlite:sport_timer_sync_server.db
+  jpa:
+    show-sql: true
+
+  liquibase:
+    enabled: true
+    drop-first: false
