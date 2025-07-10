@@ -1,0 +1,30 @@
+package ru.luchkinds.sporttimersyncserver.presenter.dto;
+
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.bind.annotation.BindParam;
+import ru.luchkinds.sporttimersyncserver.data.entity.WorkoutType;
+
+import java.time.LocalDate;
+
+public record CreateWorkoutDto(
+        @BindParam("type")
+        @NotNull
+        WorkoutType type,
+
+        @BindParam("duration")
+        @NotNull
+        Integer duration,
+
+        @BindParam("date")
+        @NotNull
+        @DateTimeFormat(pattern = "YYYY-mm-dd")
+        LocalDate date,
+
+        @BindParam("notes")
+        @Size(max = 50)
+        String notes
+) {
+}
+
