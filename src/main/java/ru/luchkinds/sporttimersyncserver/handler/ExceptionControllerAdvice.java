@@ -48,7 +48,7 @@ public class ExceptionControllerAdvice {
                 .forStatusAndDetail(
                         HttpStatus.BAD_REQUEST,
                         messageSource.getMessage(
-                                "workout.errors.workout_not_found",
+                                "workout.errors.bad_request",
                                 new Object[0],
                                 locale
                         )

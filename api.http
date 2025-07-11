@@ -1,0 +1,55 @@
+POST http://localhost:8080/api/v1/auth/sign-up
+Content-Type: application/json
+
+{
+  "username": "username",
+  "password": "password"
+}
+
+###
+GET http://localhost:8080/api/v1/users/workouts
+Accept: application/json
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+// Authorization: Basic dXNlcm5hbWUxOnBhc3N3b3Jk
+
+
+###
+GET http://localhost:8080/api/v1/users/workouts/13
+Accept: application/json
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+// Authorization: Basic dXNlcm5hbWUxOnBhc3N3b3Jk
+
+
+###
+
+POST localhost:8080/api/v1/users/workouts
+Content-Type: application/json
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+// Authorization: Basic dXNlcm5hbWUxOnBhc3N3b3Jk
+
+{
+  "type": "Yoga",
+  "duration": -25,
+  "date": "2025-01-01",
+  "notes": "поза собаки"
+}
+
+###
+
+DELETE localhost:8080/api/v1/users/workouts/7
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+// Authorization: Basic dXNlcm5hbWUxOnBhc3N3b3Jk
+
+###
+
+PUT localhost:8080/api/v1/users/workouts/11
+Content-Type: application/json
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
+// Authorization: Basic dXNlcm5hbWUxOnBhc3N3b3Jk
+
+{
+  "type": "Yoga",
+  "duration": 25,
+  "date": "2025-01-01",
+  "notes": "поза война"
+}
