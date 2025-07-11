@@ -25,7 +25,7 @@ public record CreateWorkoutDto(
         LocalDate date,
 
         @BindParam("notes")
-        @Size(max = 50)
+        @Size(max = 500)
         String notes
 ) {
 }

@@ -9,7 +9,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 import ru.luchkinds.sporttimersyncserver.data.entity.AppUser;
-import ru.luchkinds.sporttimersyncserver.data.entity.Workout;
 import ru.luchkinds.sporttimersyncserver.presenter.dto.CreateWorkoutDto;
 import ru.luchkinds.sporttimersyncserver.presenter.dto.UpdateWorkoutDto;
 import ru.luchkinds.sporttimersyncserver.presenter.dto.WorkoutResponseDto;
@@ -32,7 +31,7 @@ public class WorkoutController {
     }
 
     @PostMapping("workouts")
-    public ResponseEntity<Workout> addWorkout(
+    public ResponseEntity<?> addWorkout(
         @RequestBody @Validated CreateWorkoutDto dto,
         BindingResult bindingResult,
         @AuthenticationPrincipal AppUser user,
@@ -49,13 +48,16 @@ public class WorkoutController {
     }
 
     @GetMapping("workouts/{id:\\d+}")
-    public ResponseEntity<WorkoutResponseDto> getWorkout(@AuthenticationPrincipal AppUser user, @PathVariable Integer id) {
+    public ResponseEntity<WorkoutResponseDto> getWorkout(
+        @AuthenticationPrincipal AppUser user,
+        @PathVariable Integer id
+    ) {
         var workout = workoutService.findById(user, id);
         return ResponseEntity.ok(workout);
     }
 
     @PutMapping("workouts/{id:\\d+}")
-    public ResponseEntity<Workout> updateWorkout(
+    public ResponseEntity<?> updateWorkout(
         @AuthenticationPrincipal AppUser user,
         @PathVariable Integer id,
         @RequestBody @Validated UpdateWorkoutDto dto,
@@ -69,7 +71,7 @@ public class WorkoutController {
     }
 
     @DeleteMapping("workouts/{id:\\d+}")
-    public ResponseEntity<Workout> deleteWorkout(@AuthenticationPrincipal AppUser user, @PathVariable Integer id) {
+    public ResponseEntity<?> deleteWorkout(@AuthenticationPrincipal AppUser user, @PathVariable Integer id) {
         workoutService.delete(user, id);
         return ResponseEntity.noContent().build();
     }

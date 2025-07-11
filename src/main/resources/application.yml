@@ -10,3 +10,7 @@ spring:
   liquibase:
     enabled: true
     drop-first: false
+
+springdoc:
+  swagger-ui:
+    path: /api/docs
