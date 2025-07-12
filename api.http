@@ -29,14 +29,14 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 {
   "type": "Yoga",
-  "duration": -25,
+  "duration": 25,
   "date": "2025-01-01",
   "notes": "поза собаки"
 }
 
 ###
 
-DELETE localhost:8080/api/v1/users/workouts/7
+DELETE localhost:8080/api/v1/users/workouts/13
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 // Authorization: Basic dXNlcm5hbWUxOnBhc3N3b3Jk
 

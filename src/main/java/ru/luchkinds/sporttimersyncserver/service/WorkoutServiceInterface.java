@@ -12,9 +12,9 @@ public interface WorkoutServiceInterface {
 
     Workout create(AppUser user, WorkoutType type, Integer duration, LocalDate date, String notes);
 
-    WorkoutResponseDto findById(AppUser user, int id);
+    WorkoutResponseDto findById(int id, AppUser user);
 
-    void update(AppUser user, Integer id, WorkoutType type, Integer duration, LocalDate date, String notes);
+    void update(Integer id, AppUser user, WorkoutType type, Integer duration, LocalDate date, String notes);
 
-    void delete(AppUser user, Integer id);
+    void delete(Integer id, AppUser user);
 }

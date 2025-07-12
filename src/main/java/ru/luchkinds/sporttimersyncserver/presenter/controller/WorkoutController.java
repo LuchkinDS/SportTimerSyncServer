@@ -52,7 +52,7 @@ public class WorkoutController {
         @AuthenticationPrincipal AppUser user,
         @PathVariable Integer id
     ) {
-        var workout = workoutService.findById(user, id);
+        var workout = workoutService.findById(id, user);
         return ResponseEntity.ok(workout);
     }
 
@@ -66,13 +66,13 @@ public class WorkoutController {
         if (bindingResult.hasErrors()) {
             throw new BindException(bindingResult);
         }
-        workoutService.update(user, id, dto.type(), dto.duration(), dto.date(), dto.notes());
+        workoutService.update(id, user, dto.type(), dto.duration(), dto.date(), dto.notes());
         return ResponseEntity.noContent().build();
     }
 
     @DeleteMapping("workouts/{id:\\d+}")
     public ResponseEntity<?> deleteWorkout(@AuthenticationPrincipal AppUser user, @PathVariable Integer id) {
-        workoutService.delete(user, id);
+        workoutService.delete(id, user);
         return ResponseEntity.noContent().build();
     }
 }

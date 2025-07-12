@@ -42,14 +42,14 @@ public class DefaultWorkoutService implements WorkoutServiceInterface {
     }
 
     @Override
-    public WorkoutResponseDto findById(AppUser user, int id) {
+    public WorkoutResponseDto findById(int id, AppUser user) {
         var workout = workoutRepository
             .findByIdAndUser(id, user).orElseThrow(() -> new WorkoutNotFoundException("workout.errors.workout_not_found"));
         return new WorkoutToWorkoutResponseDto().apply(workout);
     }
 
     @Override
-    public void update(AppUser user, Integer id, WorkoutType type, Integer duration, LocalDate date, String notes) {
+    public void update(Integer id, AppUser user, WorkoutType type, Integer duration, LocalDate date, String notes) {
         workoutRepository
             .findByIdAndUser(id, user)
             .ifPresentOrElse(
@@ -68,7 +68,7 @@ public class DefaultWorkoutService implements WorkoutServiceInterface {
 
     @Override
     @Transactional
-    public void delete(AppUser user, Integer id) {
+    public void delete(Integer id, AppUser user) {
         workoutRepository.deleteByIdAndUser(id, user);
     }
 }
